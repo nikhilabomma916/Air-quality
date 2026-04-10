@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  background-color: #F5EFEB;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Leaflet map fix – ensure tiles render on top */
+.leaflet-container {
+  z-index: 0;
+}
+
+/* Smooth scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #EAF2F8; border-radius: 4px; }
+::-webkit-scrollbar-thumb { background: #B0C8D9; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #567C8D; }
+
+/* Fade-in animation used by several cards */
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+/* Alert severity helpers */
+.alert-item        { @apply border-l-4 px-4 py-3 rounded mb-3; }
+.alert-item.HIGH   { @apply border-l-red-500    bg-red-50;    }
+.alert-item.MEDIUM { @apply border-l-yellow-500 bg-yellow-50; }
+.alert-item.LOW    { @apply border-l-blue-500   bg-blue-50;   }
